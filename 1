@@ -1,0 +1,695 @@
+var Card = function(x,y,shape,num,color,pattern) {
+    this.x=x;
+    this.y=y;
+    this.l=100;
+    this.h=70;
+    this.num=round(random(1,3));
+    this.shape=round(random(1,3));
+    this.color=round(random(1,3));
+    this.pattern=round(random(1,3));
+};
+
+/*shape1 is circle. shape2 is square. shape3 is triangle.
+pattern1 is blank. pattern2 is filled. pattern3 is dotted
+color1 is red. color2 is green. color3 is purple*/
+
+rectMode(CENTER);
+
+Card.prototype.draw = function() {
+    noFill();
+    stroke(0, 0, 0);
+    rect(this.x,this.y,this.l,this.h);
+    var ellipseLength=(this.l+this.h)/9;
+    var ellipseWidth=(this.l+this.h)/9;
+    var rectLength=(this.l+this.h)/9;
+    var rectWidth=(this.l+this.h)/9;
+    var tx1=this.x-(this.l+this.h)/15;
+    var ty1=this.y-(this.l+this.h)/25;
+    var tx2=this.x+(this.l+this.h)/15;
+    var ty2=this.y-(this.l+this.h)/25;
+    var tx3=this.x;
+    var ty3=this.y+(this.l+this.h)/15;
+    //num1
+    if (this.num===1){
+        //num1 and color1 RED
+        if(this.color===1){
+            stroke(255, 0, 0);
+            fill(255, 0, 0);
+            //num1 and color1 RED and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num1 and color1 RED and pattern1 BLANK and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color1 RED and pattern1 BLANK and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color1 RED and pattern1 BLANK and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num1 and color1 RED and pattern2 FILL
+            else if(this.pattern===2){
+                /*num1 and color1 RED and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color1 RED and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color1 RED and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num1 and color1 RED and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x,this.y,ellipseLength/5,
+                ellipseLength/5);
+                noFill();
+                /*num1 and color1 RED and pattern3 DOT and                    shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color1 RED and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color1 RED and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+        }
+        //num1 and color2 GREEN
+        else if(this.color===2){
+            stroke(10, 194, 59);
+            fill(10, 194, 59);
+            //num1 and color2 GREEN and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num1 and color2 GREEN and pattern1 BLANK and                  shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color2 GREEN and pattern1 BLANK and                  shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color2 GREEN and pattern1 BLANK and                  shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num1 and color2 GREEN and pattern2 FILL
+            else if(this.pattern===2){
+                /*num1 and color2 GREEN and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color2 GREEN and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color2 GREEN and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num1 and color2 GREEN and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x,this.y,ellipseLength/5,
+                ellipseLength/5);
+                noFill();
+                /*num1 and color2 GREEN and pattern3 DOT and                   shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color2 GREEN and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color2 GREEN and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+
+        }
+        //num1 and color3 PURPLE
+        else if(this.color===3){
+            stroke(185, 11, 194);
+            fill(185, 11, 194);
+            //num1 and color3 PURPLE and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num1 and color3 PURPLE and pattern1 BLANK and                  shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color3 PURPLE and pattern1 BLANK and                  shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color3 PURPLE and pattern1 BLANK and                  shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num1 and color3 PURPLE and pattern2 FILL
+            else if(this.pattern===2){
+                /*num1 and color3 PURPLE and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color3 PURPLE and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color3 PURPLE and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num1 and color3 PURPLE and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x,this.y,ellipseLength/5,
+                ellipseLength/5);
+                noFill();
+                /*num1 and color3 PURPLE and pattern3 DOT and                   shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x,this.y,ellipseLength,                           ellipseWidth);
+                }
+                /*num1 and color3 PURPLE and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x,this.y,rectLength, rectWidth); 
+                }
+                /*num1 and color3 PURPLE and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+
+        }
+    }
+    
+    //num2
+    else if (this.num===2){
+        //num2 and color1 RED
+        if(this.color===1){
+            stroke(255, 0, 0);
+            fill(255, 0, 0);
+            //num2 and color1 RED and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num2 and color1 RED and pattern1 BLANK and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color1 RED and pattern1 BLANK and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth);
+                }
+                /*num2 and color1 RED and pattern1 BLANK and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+            //num2 and color1 RED and pattern2 FILL
+            else if(this.pattern===2){
+                /*num2 and color1 RED and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color1 RED and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth);
+                }
+                /*num2 and color1 RED and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+            //num2 and color1 RED and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x+ellipseLength,this.y,
+                    ellipseLength/5,ellipseLength/5);
+                ellipse(this.x-ellipseLength,this.y,
+                    ellipseLength/5,ellipseLength/5);
+                noFill();
+                /*num2 and color1 RED and pattern3 DOT and                    shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color1 RED and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth);
+                }
+                /*num2 and color1 RED and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+        }
+        //num2 and color2 GREEN
+        else if(this.color===2){
+            stroke(10, 194, 59);
+            fill(10, 194, 59);
+            //num2 and color2 GREEN and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num2 and color2 GREEN and pattern1 BLANK and                  shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color2 GREEN and pattern1 BLANK and                  shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth); 
+                }
+                /*num2 and color2 GREEN and pattern1 BLANK and                  shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+            //num2 and color2 GREEN and pattern2 FILL
+            else if(this.pattern===2){
+                /*num2 and color2 GREEN and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color2 GREEN and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth); 
+                }
+                /*num2 and color2 GREEN and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+            //num2 and color2 GREEN and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x+ellipseLength,this.y,
+                    ellipseLength/5,ellipseLength/5);
+                ellipse(this.x-ellipseLength,this.y,
+                    ellipseLength/5,ellipseLength/5);
+                noFill();
+                /*num2 and color2 GREEN and pattern3 DOT and                   shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color2 GREEN and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth); 
+                }
+                /*num2 and color2 GREEN and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+
+        }
+        //num2 and color3 PURPLE
+        else if(this.color===3){
+            stroke(185, 11, 194);
+            fill(185, 11, 194);
+            //num2 and color3 PURPLE and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num2 and color3 PURPLE and pattern1 BLANK and                  shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color3 PURPLE and pattern1 BLANK and                  shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth); 
+                }
+                /*num2 and color3 PURPLE and pattern1 BLANK and                  shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+            //num2 and color3 PURPLE and pattern2 FILL
+            else if(this.pattern===2){
+                /*num2 and color3 PURPLE and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color3 PURPLE and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth); 
+                }
+                /*num2 and color3 PURPLE and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+            //num2 and color3 PURPLE and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x+ellipseLength,this.y,
+                    ellipseLength/5,ellipseLength/5);
+                ellipse(this.x-ellipseLength,this.y,
+                    ellipseLength/5,ellipseLength/5);
+                noFill();
+                /*num2 and color3 PURPLE and pattern3 DOT and                   shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength,this.y,                               ellipseLength,ellipseWidth);
+                }
+                /*num2 and color3 PURPLE and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength,this.y,rectLength,                          rectWidth);
+                    rect(this.x-rectLength,this.y,rectLength,                          rectWidth);
+                }
+                /*num2 and color3 PURPLE and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength,ty1,tx2+rectLength                         ,ty2,tx3+rectLength,ty3);
+                    triangle(tx1-rectLength,ty1,tx2-rectLength                         ,ty2,tx3-rectLength,ty3);
+                }  
+            }
+
+        }
+    }
+    //num3
+    else if (this.num===3){
+        //num3 and color1 RED
+        if(this.color===1){
+            stroke(255, 0, 0);
+            fill(255, 0, 0);
+            //num3 and color1 RED and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num3 and color1 RED and pattern1 BLANK and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color1 RED and pattern1 BLANK and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color1 RED and pattern1 BLANK and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num3 and color1 RED and pattern2 FILL
+            else if(this.pattern===2){
+                /*num3 and color1 RED and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color1 RED and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color1 RED and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num3 and color1 RED and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x+ellipseLength*1.5,this.y,
+                        ellipseLength/5,ellipseLength/5);
+                ellipse(this.x-ellipseLength*1.5,this.y,
+                        ellipseLength/5,ellipseLength/5);
+                ellipse(this.x,this.y,ellipseLength/5,
+                        ellipseLength/5);
+                noFill();
+                /*num3 and color1 RED and pattern3 DOT and                    shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color1 RED and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color1 RED and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+        }
+        //num3 and color2 GREEN
+        else if(this.color===2){
+            stroke(10, 194, 59);
+            fill(10, 194, 59);
+            //num3 and color2 GREEN and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num3 and color2 GREEN and pattern1 BLANK and                  shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color2 GREEN and pattern1 BLANK and                  shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color2 GREEN and pattern1 BLANK and                  shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num3 and color2 GREEN and pattern2 FILL
+            else if(this.pattern===2){
+                /*num3 and color2 GREEN and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color2 GREEN and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color2 GREEN and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num3 and color2 GREEN and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x+ellipseLength*1.5,this.y,
+                        ellipseLength/5,ellipseLength/5);
+                ellipse(this.x-ellipseLength*1.5,this.y,
+                        ellipseLength/5,ellipseLength/5);
+                ellipse(this.x,this.y,ellipseLength/5,
+                        ellipseLength/5);
+                noFill();
+                /*num3 and color2 GREEN and pattern3 DOT and                   shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color2 GREEN and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color2 GREEN and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+
+        }
+        //num3 and color3 PURPLE
+        else if(this.color===3){
+            stroke(185, 11, 194);
+            fill(185, 11, 194);
+            //num3 and color3 PURPLE and pattern1 BLANK
+            if(this.pattern===1){
+                noFill();
+                /*num3 and color3 PURPLE and pattern1 BLANK and                  shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color3 PURPLE and pattern1 BLANK and                  shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color3 PURPLE and pattern1 BLANK and                  shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num3 and color3 PURPLE and pattern2 FILL
+            else if(this.pattern===2){
+                /*num3 and color3 PURPLE and pattern2 FILL and                    shape1 CIRLCE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color3 PURPLE and pattern2 FILL and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color3 PURPLE and pattern2 FILL and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+            //num3 and color3 PURPLE and pattern3 DOT
+            else if(this.pattern===3){
+                ellipse(this.x+ellipseLength*1.5,this.y,
+                        ellipseLength/5,ellipseLength/5);
+                ellipse(this.x-ellipseLength*1.5,this.y,
+                        ellipseLength/5,ellipseLength/5);
+                ellipse(this.x,this.y,ellipseLength/5,
+                        ellipseLength/5);
+                noFill();
+                /*num3 and color3 PURPLE and pattern3 DOT and                   shape1 CIRCLE*/
+                if(this.shape===1){
+                    ellipse(this.x+ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x-ellipseLength*1.5,this.y,                               ellipseLength,ellipseWidth);
+                    ellipse(this.x,this.y,ellipseLength,                                   ellipseWidth);
+                }
+                /*num3 and color3 PURPLE and pattern3 DOT and                    shape2 SQUARE*/
+                else if(this.shape===2){
+                    rect(this.x+rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x-rectLength*1.5,this.y,
+                        rectLength,rectWidth);
+                    rect(this.x,this.y,rectLength,rectWidth);
+                }
+                /*num3 and color3 PURPLE and pattern3 DOT and                    shape3 TRIANGLE*/
+                else if(this.shape===3){
+                    triangle(tx1+rectLength*1.5,ty1,tx2                                    +rectLength*1.5,ty2,tx3+rectLength                             *1.5,ty3);
+                    triangle(tx1-rectLength*1.5,ty1,tx2                                    -rectLength*1.5,ty2,tx3-rectLength                             *1.5,ty3);
+                    triangle(tx1,ty1,tx2,ty2,tx3,ty3);
+                }  
+            }
+
+        }
+    }
+};
+
+var cards = [];
+var numColumns = 3;
+var numRows = 3;
+
+for (var i = 0 ; i < numColumns ; i++){
+    for (var j = 0 ; j < numRows ; j++){
+        cards.push(new Card(i*110+55, j*80+120));
+    }
+}
+
+for (var a = 0; a <cards.length; a++){
+    cards[a].draw();
+}
+
+var button1 = {
+    x:360,
+    y:25,
+    l:60,
+    w:30,
+    txt:"SHUFFLE",
+    color:color(136, 116, 247)
+};
+
+var button2 = {
+    x:360,
+    y:60,
+    l:60,
+    w:30,
+    txt:"ADD 3",
+    color:color(136, 116, 247)
+};
+
+var drawButtons=function(button){
+    stroke(0, 0, 0);
+    fill(button.color);
+    rect(button.x, button.y, button.l, button.w);
+    fill(0, 0, 0);
+    textAlign(CENTER, CENTER);
+    text(button.txt,button.x, button.y);
+};
+
+drawButtons(button1);
+drawButtons(button2);
