@@ -1,3 +1,19 @@
+function main(processing) {
+    // Some aliases so that we don't have to keep typing `processing.`
+    var noFill,
+        rectMode,
+        stroke,
+        rect,
+        fill,
+        ellipse,
+        triangle,
+        round,
+        random,
+        color,
+        textAlign,
+        CENTER,
+        text;
+
 var Card = function(x,y,shape,num,color,pattern) {
     this.x=x;
     this.y=y;
@@ -12,8 +28,6 @@ var Card = function(x,y,shape,num,color,pattern) {
 /*shape1 is circle. shape2 is square. shape3 is triangle.
 pattern1 is blank. pattern2 is filled. pattern3 is dotted
 color1 is red. color2 is green. color3 is purple*/
-
-rectMode(CENTER);
 
 Card.prototype.draw = function() {
     noFill();
@@ -651,6 +665,26 @@ Card.prototype.draw = function() {
 };
 
 var cards = [];
+
+    processing.setup = function() {
+        processing.size(800, 600);
+        processing.rectMode(processing.CENTER);
+
+        // Set up some aliases.
+        noFill = processing.noFill;
+        rectMode = processing.rectMode;
+        stroke = processing.stroke;
+        rect = processing.rect;
+        fill = processing.fill;
+        ellipse = processing.ellipse;
+        triangle = processing.triangle;
+        round = processing.round;
+        random = processing.random;
+        color = processing.color;
+        textAlign = processing.textAlign;
+        CENTER = processing.CENTER;
+        text = processing.text;
+
 var numColumns = 3;
 var numRows = 3;
 
@@ -659,7 +693,11 @@ for (var i = 0 ; i < numColumns ; i++){
         cards.push(new Card(i*110+55, j*80+120));
     }
 }
+    }
 
+    processing.draw = function() {
+        processing.background(224);
+        
 for (var a = 0; a <cards.length; a++){
     cards[a].draw();
 }
@@ -693,3 +731,10 @@ var drawButtons=function(button){
 
 drawButtons(button1);
 drawButtons(button2);
+
+    }
+}
+
+// I got this from here: http://processingjs.org/articles/jsQuickStart.html#javascriptonlyprocessingcode
+var canvas = document.getElementById('the-canvas');
+var processingInstance = new Processing(canvas, main);
