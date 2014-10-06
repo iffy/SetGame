@@ -1,4 +1,30 @@
-rectMode(CENTER);
+var button1;
+var deck = [];
+var selected = [];
+//the selected cards' position numbers
+var choice = [];
+var sets=0;
+var cardDisplay = 1;
+var width = 800;
+var height = 600;
+
+function main(processing) {
+    // Some aliases so that we don't have to keep typing `processing.`
+    var noFill,
+    rectMode,
+    stroke,
+    noStroke,
+    rect,
+    fill,
+    ellipse,
+    triangle,
+    round,
+    floor,
+    random,
+    color,
+    textAlign,
+    CENTER,
+    text;
 
 var Card = function(num,shape,color,pattern) {
     this.x=55;
@@ -10,32 +36,6 @@ var Card = function(num,shape,color,pattern) {
     this.color=color;
     this.pattern=pattern;
 };
-
-//all possible cards (81)
-var deck=[];
- 
-for (var a=1; a<4; a++){
-    for (var b=1; b<4; b++){
-        for (var c=1; c<4; c++){
-            for (var d=1; d<4; d++){
-                deck.push(new Card(a,b,c,d));
-            }
-        }
-    }
-}     
-
-//all cards randomized
-var selected =[];
-
-for (var k=0; k<81; k++){
-    var pick=floor(random(deck.length));
-    var cardpick=deck[pick];
-    selected.push(cardpick);
-    deck.splice(pick, 1);
-}
-
-//position of cards
-var cardDisplay=1;
 
 /*shape1 is circle. shape2 is square. shape3 is triangle.
 pattern1 is blank. pattern2 is filled. pattern3 is dotted
@@ -738,55 +738,20 @@ Card.prototype.draw = function() {
     }
 };
 
-var button1 = {
-    x:360,
-    y:21,
-    l:60,
-    w:32,
-    txt:"SHUFFLE"
-};
-
-var drawButtons=function(button){
-    stroke(0, 0, 0);
-    fill(136,116,247);
-    rect(button.x, button.y, button.l, button.w);
-    fill(0, 0, 0);
-    textAlign(CENTER, CENTER);
-    text(button.txt,button.x, button.y);
-};
-
-drawButtons(button1);
-
 var isMouseInside = function(button){
+    var mouseX = processing.mouseX;
+    var mouseY = processing.mouseY;
     return (mouseX>=(button.x - button.l/2) &&
             mouseX<=(button.x + button.l/2) &&
             mouseY>=(button.y - button.w/2) &&
             mouseY<=(button.y + button.w/2));
 };
-
-//display 12 cards
-for (var m=1; m<=12; m++){
-    var cardDisplay=m;
-    selected[m-1].draw();
-}
-
-textAlign(CENTER, CENTER);
-fill(0, 0, 0);
-text("SETS",365,180);
-var sets=0;
-
-//the selected cards' position numbers
-var choice=[];
-
-//white box
-noStroke();
-fill(255, 255, 255);
-rect(200,350,width,60);
-
 //can only select 3 cards
 //is it a SET? count sets
-var mouseClicked=function(){
-    
+var mouseClicked=function(e){
+    var mouseX = processing.mouseX;
+    var mouseY = processing.mouseY;
+
     //white box
     noStroke();
     fill(255, 255, 255);
@@ -898,6 +863,8 @@ var mouseClicked=function(){
             choice.push(12);
         }
     }
+    console.log('selected', selected);
+    console.log('choice', choice);
 
     //variables of the selected cards
     var xA=selected[choice[0]-1].x;
@@ -928,12 +895,12 @@ var mouseClicked=function(){
     var isSet=false;
     
     if ((numA===numB && numB===numC) || (numA!==numB && 
-    numB!==numC && numA!==numC)){
+        numB!==numC && numA!==numC)){
         if ((shapeA===shapeB && shapeB===shapeC) || 
-        (shapeA!==shapeB && shapeB!==shapeC && shapeA!==shapeC          )) {
+            (shapeA!==shapeB && shapeB!==shapeC && shapeA!==shapeC          )) {
             if ((colorA===colorB && colorB===colorC) || 
-            (colorA!==colorB && colorB!==colorC && 
-            colorA!==colorC)){
+                (colorA!==colorB && colorB!==colorC && 
+                    colorA!==colorC)){
                 if ((patternA===patternB && patternB===patternC)                 || (patternA!==patternB && patternB!==patternC                  && patternA!==patternC)){
                     isSet=true;
                     fill(0, 0, 0);
@@ -977,11 +944,7 @@ var mouseClicked=function(){
     //what happens if it is a SET
     if (isSet) {
         sets++;
-        noStroke();
-        fill(255, 255, 0);
-        rect(365,200,50,10);
-        fill(0, 0, 0);
-        text(sets,365,200);
+        
         fill(255, 255, 255);
         stroke(255, 255, 255);
         rect(xA,yA,lA,hA);
@@ -1072,6 +1035,106 @@ var mouseClicked=function(){
     }
 };
 
+processing.mouseClicked = mouseClicked;
+
+// Configure ProcessingJS
+processing.setup = function() {
+    console.log("setup");
+    processing.size(width, height);
+    processing.rectMode(processing.CENTER);
+
+    // Set up some aliases.
+    noFill = processing.noFill;
+    rectMode = processing.rectMode;
+    stroke = processing.stroke;
+    noStroke = processing.noStroke;
+    rect = processing.rect;
+    fill = processing.fill;
+    ellipse = processing.ellipse;
+    triangle = processing.triangle;
+    round = processing.round;
+    floor = processing.floor;
+    random = processing.random;
+    color = processing.color;
+    textAlign = processing.textAlign;
+    CENTER = processing.CENTER;
+    text = processing.text;
+
+    var numColumns = 3;
+    var numRows = 3;
+
+    //all possible cards (81)
+    for (var a=1; a<4; a++){
+        for (var b=1; b<4; b++){
+            for (var c=1; c<4; c++){
+                for (var d=1; d<4; d++){
+                    deck.push(new Card(a,b,c,d));
+                }
+            }
+        }
+    }     
+
+    // randomize cards
+    for (var k=0; k<81; k++){
+        var pick=floor(random(deck.length));
+        var cardpick=deck[pick];
+        selected.push(cardpick);
+        deck.splice(pick, 1);
+    }
+
+    //position of cards
+    cardDisplay=1;
+}
+
+processing.draw = function() {
+    processing.background(224);
+
+    button1 = {
+        x:360,
+        y:21,
+        l:60,
+        w:32,
+        txt:"SHUFFLE"
+    };
+
+    var drawButtons=function(button){
+        stroke(0, 0, 0);
+        fill(136,116,247);
+        rect(button.x, button.y, button.l, button.w);
+        fill(0, 0, 0);
+        textAlign(CENTER, CENTER);
+        text(button.txt,button.x, button.y);
+    };
+
+    drawButtons(button1);
+
+    //display 12 cards
+    for (var m=1; m<=12; m++){
+        cardDisplay=m;
+        selected[m-1].draw();
+    }
+
+    textAlign(CENTER, CENTER);
+    fill(0, 0, 0);
+    text("SETS",365,180);
+
+    //white box
+    noStroke();
+    fill(255, 255, 255);
+    rect(200,350,width,60);
+
+    // sets
+    noStroke();
+    fill(255, 255, 0);
+    rect(365,200,50,10);
+    fill(0, 0, 0);
+    text(sets,365,200);
+}
+};
+
+// I got this from here: http://processingjs.org/articles/jsQuickStart.html#javascriptonlyprocessingcode
+var canvas = document.getElementById('the-canvas');
+var processingInstance = new Processing(canvas, main);
 
 
 
